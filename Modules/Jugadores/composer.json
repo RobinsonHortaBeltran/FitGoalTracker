@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/jugadores",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Jugadores\\": "",
+            "Modules\\Jugadores\\App\\": "app/",
+            "Modules\\Jugadores\\Database\\Factories\\": "database/factories/",
+            "Modules\\Jugadores\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Jugadores\\Tests\\": "tests/"
+        }
+    }
+}

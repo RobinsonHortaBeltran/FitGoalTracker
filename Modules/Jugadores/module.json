@@ -1,0 +1,11 @@
+{
+    "name": "Jugadores",
+    "alias": "jugadores",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Jugadores\\App\\Providers\\JugadoresServiceProvider"
+    ],
+    "files": []
+}

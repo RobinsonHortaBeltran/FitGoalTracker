@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/entrenadores",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Entrenadores\\": "",
+            "Modules\\Entrenadores\\App\\": "app/",
+            "Modules\\Entrenadores\\Database\\Factories\\": "database/factories/",
+            "Modules\\Entrenadores\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Entrenadores\\Tests\\": "tests/"
+        }
+    }
+}

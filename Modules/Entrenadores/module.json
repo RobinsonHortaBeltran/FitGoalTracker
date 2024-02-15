@@ -1,0 +1,11 @@
+{
+    "name": "Entrenadores",
+    "alias": "entrenadores",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Entrenadores\\App\\Providers\\EntrenadoresServiceProvider"
+    ],
+    "files": []
+}
