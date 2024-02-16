@@ -13,8 +13,9 @@ class ModelEquipo extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['nombre', 'descripcion', 'director'];
+    protected $fillable = ['nombre', 'descripcion', 'director', 'estado'];
     protected $table = 'equipos';
+
     protected static function newFactory()
     {
 
