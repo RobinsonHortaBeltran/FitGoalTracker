@@ -5,6 +5,7 @@ namespace Modules\Equipos\App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Equipos\Database\factories\ModelEquipoFactory;
+use Modules\Jugadores\App\Models\ModelJugador;
 
 class ModelEquipo extends Model
 {
@@ -18,6 +19,10 @@ class ModelEquipo extends Model
 
     protected static function newFactory()
     {
+    }
 
+    public function jugadores()
+    {
+        return $this->hasMany(ModelJugador::class, 'equipo', 'id');
     }
 }

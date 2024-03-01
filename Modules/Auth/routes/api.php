@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use  Modules\Jugadores\App\Http\Controllers\JugadoresController;
-
+use Modules\Auth\App\Http\Controllers\AuthController;
 /*
     |--------------------------------------------------------------------------
     | API Routes
@@ -15,13 +14,8 @@ use  Modules\Jugadores\App\Http\Controllers\JugadoresController;
     |
 */
 
-
-Route::middleware(['auth:api'])->prefix('v1')->name('api.')->group(function () {
-    Route::resource('jugadores', JugadoresController::class)->only([
-        'index', 'store', 'update'
-    ])->names([
-        'index' => 'jugadores.index',
-        'store' => 'jugadores.store',
-        'update' => 'jugadores.update',
-    ]);
-});
+// Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
+//     Route::get('auth', fn (Request $request) => $request->user())->name('auth');
+// });
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);

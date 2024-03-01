@@ -30,7 +30,7 @@ class EquiposController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-       $validarEquipo = $request->validate([
+        $validarEquipo = $request->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
             'director' => 'required',
@@ -47,7 +47,7 @@ class EquiposController extends Controller
                     'success' => true
                 ]
             );
-        }else {
+        } else {
             return response()->json(
                 [
                     'data' => null,
@@ -56,7 +56,6 @@ class EquiposController extends Controller
                 ]
             );
         }
-
     }
 
     /**
@@ -64,26 +63,26 @@ class EquiposController extends Controller
      */
     public function show($id): JsonResponse
     {
-      if ($id) {
-        $equipo = ModelEquipo::find($id);
-        if ($equipo) {
-            return response()->json(
-                [
-                    'data' => $equipo,
-                    'message' => 'Equipo encontrado correctamente',
-                    'success' => true
-                ]
-            );
-        }else {
-            return response()->json(
-                [
-                    'data' => null,
-                    'message' => 'Equipo no encontrado',
-                    'success' => false
-                ]
-            );
+        if ($id) {
+            $equipo = ModelEquipo::find($id);
+            if ($equipo) {
+                return response()->json(
+                    [
+                        'data' => $equipo,
+                        'message' => 'Equipo encontrado correctamente',
+                        'success' => true
+                    ]
+                );
+            } else {
+                return response()->json(
+                    [
+                        'data' => null,
+                        'message' => 'Equipo no encontrado',
+                        'success' => false
+                    ]
+                );
+            }
         }
-      }
     }
 
 
@@ -109,7 +108,7 @@ class EquiposController extends Controller
                     'success' => true
                 ]
             );
-        }else {
+        } else {
             return response()->json(
                 [
                     'data' => null,
@@ -135,7 +134,7 @@ class EquiposController extends Controller
                     'success' => true
                 ]
             );
-        }else {
+        } else {
             return response()->json(
                 [
                     'data' => null,
@@ -144,5 +143,16 @@ class EquiposController extends Controller
                 ]
             );
         }
+    }
+
+    public function jugadores($id): JsonResponse
+    {
+        $equipo = ModelEquipo::with('jugadores')->find($id);
+
+        if (!$equipo) {
+            return response()->json(['mensaje' => 'Equipo no encontrado'], 404);
+        }
+
+        return response()->json(['jugadores' => $equipo, 'message' => 'Jugadores encontrados correctamente', 'success' => true]);
     }
 }

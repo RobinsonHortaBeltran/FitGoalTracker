@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\Entrenadores\App\Http\Controllers\EntrenadoresController;
 
 /*
     |--------------------------------------------------------------------------
@@ -13,7 +14,13 @@ use Illuminate\Support\Facades\Route;
     | is assigned the "api" middleware group. Enjoy building your API!
     |
 */
+Route::middleware(['auth:api'])->prefix('v1/entrenador')->name('api.')->group(function () {
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
-    Route::get('entrenadores', fn (Request $request) => $request->user())->name('entrenadores');
+    Route::get('/', [EntrenadoresController::class, 'index'])->name('entrenador.index');
+    Route::post('/', [EntrenadoresController::class, 'store'])->name('entrenador.store');
+    Route::get('/{id}', [EntrenadoresController::class, 'show'])->name('entrenador.show');
+    Route::put('/{id}', [EntrenadoresController::class, 'update'])->name('entrenador.update');
+    Route::delete('/{id}', [EntrenadoresController::class, 'destroy'])->name('entrenador.destroy');
+    Route::get('/equipo/{id}', [EntrenadoresController::class, 'jugadores'])->name('entrenador.equipo');
+
 });

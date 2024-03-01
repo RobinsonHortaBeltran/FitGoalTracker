@@ -4,7 +4,7 @@ namespace Modules\Jugadores\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Modules\Equipos\App\Models\ModelEquipo;
 
 class ModelJugador extends Model
 {
@@ -52,8 +52,15 @@ class ModelJugador extends Model
         'agilidad',
     ];
 
+    protected $table = 'jugadores';
+
     protected static function newFactory()
     {
 
+    }
+
+    public function equipo()
+    {
+        return $this->belongsTo(ModelEquipo::class, 'equipo', 'id');
     }
 }

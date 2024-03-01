@@ -38,7 +38,9 @@ class EntrenadoresController extends Controller
             'telefono' => 'required',
             'especialidad' => 'required',
             'descripcion' => 'required',
+            'imagen' => 'required', // 'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048
             'estado' => 'required',
+            'equipo_id' => 'required'
         ]);
 
         if ($validarEntrenador) {

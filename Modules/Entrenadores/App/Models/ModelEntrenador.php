@@ -13,8 +13,9 @@ class ModelEntrenador extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['nombre', 'apellidos', 'email', 'telefono', 'especialidad', 'imagen', 'descripcion', 'estado'];
+    protected $fillable = ['nombre', 'apellidos', 'email', 'telefono', 'especialidad', 'imagen', 'descripcion', 'estado', 'equipo_id'];
     protected $table = 'entrenadores';
+
     protected static function newFactory()
     {
         //return ModelEntrenadorFactory::new();

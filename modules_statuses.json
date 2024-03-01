@@ -1,5 +1,6 @@
 {
     "Equipos": true,
     "Entrenadores": true,
-    "Jugadores": true
+    "Jugadores": true,
+    "Auth": true
 }

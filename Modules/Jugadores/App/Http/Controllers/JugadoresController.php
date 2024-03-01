@@ -17,12 +17,9 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'Message' => 'Listado de jugadores',
-            'data' => ModelJugador::all(),
-            'status' => true,
-            'code' => 200,
-        ]);
+        $jugadores = ModelJugador::with('equipo')->get();
+        $message = 'Listado de jugadores';
+        return new JugadoresResource($jugadores, $message);
     }
 
     /**
@@ -35,8 +32,6 @@ class JugadoresController extends Controller
                 'nombre' => 'required',
                 'apellido' => 'required',
                 'telefono' => 'required',
-                'email' => 'required',
-                'clave' => 'required',
             ]);
 
             if ($validateData) {
